@@ -1,7 +1,7 @@
 package assign07;
 
 import java.util.List;
-import java.util.ArrayList;
+
 /**
  * GraphUtility
  * 
@@ -10,14 +10,14 @@ import java.util.ArrayList;
  * @param <EType>
  */
 public class GraphUtility {
-  public static <Type> List<Type> shortestpath(
+  public static <Type> List<Type> shortestPath(
   List<Type> sources,
-  List<Type> destinations,
+  List<Type> destination,
   Type srcData,
   Type dstData) {
 
 // check lists have equal sizes
-if (sources.size() != destinations.size()) {
+if (sources.size() != destination.size()) {
   throw new IllegalArgumentException();
 
 }
@@ -28,7 +28,8 @@ DirectedGraph<Type> graph = new DirectedGraph<>();
   // Add edges to the graph
   for (int i = 0; i < sources.size(); i++) {
     Type source = sources.get(i);
-    Type destination = destinations.get(i);
+    Type destination = destination.get(i);
+    double weight = weights.get(i);
 
     graph.addEdge(source, destination);
 
@@ -42,7 +43,7 @@ DirectedGraph<Type> graph = new DirectedGraph<>();
 }
 
 
-public static <Type> List<Type> shortestWeightedpath (
+public static <Type> List<Type> shortestWeightedPath (
   List<Type> sources,
   List<Type> destination,
   List<Double> weights,
@@ -50,7 +51,7 @@ public static <Type> List<Type> shortestWeightedpath (
   Type dstData) {
 
   // check all lists for equal sizes
-  if (sources.size() != destinations.size()
+  if (sources.size() != destination.size()
           || sources.size() != weights.size()) {
     throw new IllegalArgumentException();
   }
@@ -60,12 +61,13 @@ public static <Type> List<Type> shortestWeightedpath (
 
   for (int i = 0; i < sources.size(); i++) {
     Type source = sources.get(i);
-    Type destination = destinations.get(i);
-
+    Type destination = destination.get(i);
+    double weight = weights.get(i);
+    
     graph.addEdge(source, destination);
   }
   // call dijkstra's algorithm
 
-  return graph.topoSort();
+  return graph.dijkstrasAlgorithm(srcData, dstData);
   }
 }

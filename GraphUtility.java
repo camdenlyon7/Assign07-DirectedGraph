@@ -17,7 +17,7 @@ public class GraphUtility {
   Type dstData) {
 
 // check lists have equal sizes
-if (sources.size() != destination.size()) {
+if (sources.size() != destinations.size()) {
   throw new IllegalArgumentException();
 
 }
@@ -28,7 +28,7 @@ DirectedGraph<Type> graph = new DirectedGraph<>();
   // Add edges to the graph
   for (int i = 0; i < sources.size(); i++) {
     Type source = sources.get(i);
-    Type destination = destination.get(i);
+    Type destination = destinations.get(i);
 
     graph.addEdge(source, destination);
 
@@ -50,7 +50,7 @@ public static <Type> List<Type> shortestWeightedPath (
   Type dstData) {
 
   // check all lists for equal sizes
-  if (sources.size() != destination.size()
+  if (sources.size() != destinations.size()
           || sources.size() != weights.size()) {
     throw new IllegalArgumentException();
   }
@@ -60,10 +60,10 @@ public static <Type> List<Type> shortestWeightedPath (
 
   for (int i = 0; i < sources.size(); i++) {
     Type source = sources.get(i);
-    Type destination = destination.get(i);
+    Type destination = destinations.get(i);
     double weight = weights.get(i);
     
-    graph.addEdge(source, destination, weight);
+    graph.addEdge(source, destinations, weight);
   }
   // call dijkstra's algorithm
 
@@ -75,7 +75,7 @@ public static <Type> List<Type> sort (
   List<Type> destinations) {
 
   // check all lists for equal sizes
-  if (sources.size() != destination.size()) {
+  if (sources.size() != destinations.size()) {
     throw new IllegalArgumentException();
   }
 
@@ -84,9 +84,9 @@ public static <Type> List<Type> sort (
 
   for (int i = 0; i < sources.size(); i++) {
     Type source = sources.get(i);
-    Type destination = destination.get(i);
+    Type destination = destinations.get(i);
     
-    graph.addEdge(source, destination);
+    graph.addEdge(source, destinations);
   }
 
   return graph.topoSort();

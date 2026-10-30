@@ -16,16 +16,13 @@ public class GraphUtility {
   Type srcData,
   Type dstData) {
 
-// check lists have equal sizes
 if (sources.size() != destinations.size()) {
   throw new IllegalArgumentException();
 
 }
 
-// create graph
-DirectedGraph<Type> graph = new DirectedGraph<>();
+Graph<Type> graph = new Graph<>();
 
-  // Add edges to the graph
   for (int i = 0; i < sources.size(); i++) {
     Type source = sources.get(i);
     Type destination = destinations.get(i);
@@ -33,11 +30,7 @@ DirectedGraph<Type> graph = new DirectedGraph<>();
     graph.addEdge(source, destination);
 
   }
-
-  // Find the shortest path using BFS
-
   List<Type> path = graph.breadthFirstSearch(srcData,dstData);
-
   return path;
 }
 
@@ -56,7 +49,7 @@ public static <Type> List<Type> shortestWeightedPath (
   }
 
   //created weighted graph and add edges 
-  DirectedGraph<Type> graph = new DirectedGraph<>();
+  Graph<Type> graph = new Graph<>();
 
   for (int i = 0; i < sources.size(); i++) {
     Type source = sources.get(i);
@@ -66,7 +59,6 @@ public static <Type> List<Type> shortestWeightedPath (
     graph.addEdge(source, destination, weight);
   }
   // call dijkstra's algorithm
-
   return graph.dijkstrasAlgorithm(srcData, dstData);
   }
 
@@ -79,8 +71,7 @@ public static <Type> List<Type> sort (
     throw new IllegalArgumentException();
   }
 
-  //created weighted graph and add edges 
-  DirectedGraph<Type> graph = new DirectedGraph<>();
+  Graph<Type> graph = new Graph<>();
 
   for (int i = 0; i < sources.size(); i++) {
     Type source = sources.get(i);

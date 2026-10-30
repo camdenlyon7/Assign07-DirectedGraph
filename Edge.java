@@ -58,7 +58,13 @@ public class Edge<EType> {
 	public boolean equals(Object o) {
 		if (!(o instanceof Edge<?> other))
 			return false;
-		return this.destination == other.destination && this.weight == other.weight;
+		return this.destination.equals(other.destination)
+			&& this.weight == other.weight;
+	}
+
+	@Override
+	public int hashCode() {
+		return java.util.Objects.hash(destination, weight);
 	}
 
 }

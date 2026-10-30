@@ -2,7 +2,13 @@ package assign07;
 
 import java.util.List;
 import java.utio.ArrayList;
-
+/**
+ * GraphUtility
+ * 
+ * @author Camden Lyon & Ibrahim Alasady
+ * @version 2026-10-29
+ * @param <EType>
+ */
 public class GraphUtility {
   public static <Type> List<Type> (
   List<Type> sources,

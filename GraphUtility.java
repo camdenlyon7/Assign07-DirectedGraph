@@ -12,7 +12,7 @@ import java.util.List;
 public class GraphUtility {
   public static <Type> List<Type> shortestPath(
   List<Type> sources,
-  List<Type> destination,
+  List<Type> destinations,
   Type srcData,
   Type dstData) {
 
@@ -44,7 +44,7 @@ DirectedGraph<Type> graph = new DirectedGraph<>();
 
 public static <Type> List<Type> shortestWeightedPath (
   List<Type> sources,
-  List<Type> destination,
+  List<Type> destinations,
   List<Double> weights,
   Type srcData,
   Type dstData) {
@@ -72,7 +72,7 @@ public static <Type> List<Type> shortestWeightedPath (
 
 public static <Type> List<Type> sort (
   List<Type> sources,
-  List<Type> destination) {
+  List<Type> destinations) {
 
   // check all lists for equal sizes
   if (sources.size() != destination.size()) {

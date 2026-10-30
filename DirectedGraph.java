@@ -1,6 +1,5 @@
 package assign07;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -119,7 +118,7 @@ public class DirectedGraph <Type> {
 		resetAllVertices();
 		Vertex<Type> start = getVertex(source);
 		Vertex<Type> end = getVertex(destination);
-		Queue<Vertex<Type>> queue = new ArrayDeque<>();
+		Queue<Vertex<Type>> queue = new LinkedList<>();
         start.setVisited(true);
         queue.add(start);
         boolean found = false;

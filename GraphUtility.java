@@ -29,7 +29,6 @@ DirectedGraph<Type> graph = new DirectedGraph<>();
   for (int i = 0; i < sources.size(); i++) {
     Type source = sources.get(i);
     Type destination = destination.get(i);
-    double weight = weights.get(i);
 
     graph.addEdge(source, destination);
 
@@ -64,10 +63,32 @@ public static <Type> List<Type> shortestWeightedPath (
     Type destination = destination.get(i);
     double weight = weights.get(i);
     
-    graph.addEdge(source, destination);
+    graph.addEdge(source, destination, weight);
   }
   // call dijkstra's algorithm
 
   return graph.dijkstrasAlgorithm(srcData, dstData);
+  }
+
+public static <Type> List<Type> sort (
+  List<Type> sources,
+  List<Type> destination) {
+
+  // check all lists for equal sizes
+  if (sources.size() != destination.size()) {
+    throw new IllegalArgumentException();
+  }
+
+  //created weighted graph and add edges 
+  DirectedGraph<Type> graph = new DirectedGraph<>();
+
+  for (int i = 0; i < sources.size(); i++) {
+    Type source = sources.get(i);
+    Type destination = destination.get(i);
+    
+    graph.addEdge(source, destination, );
+  }
+
+  return graph.topoSort();
   }
 }

@@ -14,13 +14,13 @@ import java.util.Queue;
  * @version 2026-10-29
  * @param <Type>
  */
-public class DirectedGraph <Type> {
+public class Graph <Type> {
 	private HashMap<Type, Vertex<Type>> vertices;
 	
 	/**
 	 * constructor
 	 */
-	public DirectedGraph(){
+	public Graph(){
 		this.vertices  = new HashMap<>();
 	}
 	

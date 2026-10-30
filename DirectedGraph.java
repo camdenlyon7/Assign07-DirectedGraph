@@ -187,7 +187,7 @@ public class DirectedGraph <Type> {
 
 	/**
 	 * Runs a topological sort on the graph
-	 * @return, a list of the topographically sorted order
+	 * @return a list of the topographically sorted order
 	 * @throws IllegalArgumentException if graph is cyclic
 	 */
 	public List<Type> topoSort(){

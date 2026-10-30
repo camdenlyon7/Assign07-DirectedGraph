@@ -86,7 +86,7 @@ public static <Type> List<Type> sort (
     Type source = sources.get(i);
     Type destination = destination.get(i);
     
-    graph.addEdge(source, destination, );
+    graph.addEdge(source, destination);
   }
 
   return graph.topoSort();

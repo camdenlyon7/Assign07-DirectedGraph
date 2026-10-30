@@ -63,7 +63,7 @@ public static <Type> List<Type> shortestWeightedPath (
     Type destination = destinations.get(i);
     double weight = weights.get(i);
     
-    graph.addEdge(source, destinations, weight);
+    graph.addEdge(source, destination, weight);
   }
   // call dijkstra's algorithm
 
@@ -86,7 +86,7 @@ public static <Type> List<Type> sort (
     Type source = sources.get(i);
     Type destination = destinations.get(i);
     
-    graph.addEdge(source, destinations);
+    graph.addEdge(source, destination);
   }
 
   return graph.topoSort();
